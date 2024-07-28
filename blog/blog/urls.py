@@ -12,18 +12,24 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-import logging
-logger = logging.getLogger('django')
+# """
+# import logging
+# logger = logging.getLogger('django')
+# from django.contrib import admin
+# from django.urls import path
+# from django.http import HttpResponse
+# def log(request):
+#     # 记录日志信息
+#     logger.info('infomation')
+#     return HttpResponse('Hello yjc')
+
 from django.contrib import admin
-from django.urls import path
-from django.http import HttpResponse
-def log(request):
-    # 记录日志信息
-    logger.info('infomation')
-    return HttpResponse('Hello yjc')
+from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',log),
+    # include 参数1要设置为元组（urlconf_module, app_name）
+    # urlconf_module路由，app_name应用名称
+    # namespace 设置命名空间
+    path('', include(('users.urls', 'users'), namespace='users')),
 ]
