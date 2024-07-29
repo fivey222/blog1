@@ -23,13 +23,16 @@ Including another URLconf
 #     logger.info('infomation')
 #     return HttpResponse('Hello yjc')
 
+
+
 from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # include 参数1要设置为元组（urlconf_module, app_name）
-    # urlconf_module路由，app_name应用名称
     # namespace 设置命名空间
     path('', include(('users.urls', 'users'), namespace='users')),
+
+    path('', include(('home.urls','home'),namespace='home')),
 ]
