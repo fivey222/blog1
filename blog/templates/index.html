@@ -29,7 +29,7 @@
     <div class="container">
         <!-- 导航栏商标 -->
         <div>
-            <a class="navbar-brand" href="./index.html">个人博客</a>
+            <a class="navbar-brand" href="{% url 'home:index' %}">个人博客</a>
         </div>
         <!-- 分类 -->
         <div class="collapse navbar-collapse">
@@ -89,7 +89,7 @@
             </span>
             <!-- 标题 -->
             <h4>
-                <b><a href="./detail.html" style="color: black;">{{ article.title }}</a></b>
+                <b><a href="{% url 'home:detail' %}?id={{ article.id }}" style="color: black;">{{ article.title }}</a></b>
             </h4>
             <!-- 摘要 -->
             <div>
